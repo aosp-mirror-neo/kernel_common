@@ -35,6 +35,9 @@ DECLARE_RESTRICTED_HOOK(android_rvh_vmscan_kswapd_done,
 			TP_PROTO(int node_id, unsigned int highest_zoneidx, unsigned int alloc_order,
 			unsigned int reclaim_order),
 			TP_ARGS(node_id, highest_zoneidx, alloc_order, reclaim_order), 1);
+DECLARE_HOOK(android_vh_mem_cgroup_flush_stats_bypass,
+	TP_PROTO(struct mem_cgroup *target_mem_cgroup, bool *bypass),
+	TP_ARGS(target_mem_cgroup, bypass));
 DECLARE_HOOK(android_vh_shrink_folio_list,
 	TP_PROTO(struct folio *folio, bool dirty, bool writeback,
 		bool *activate, bool *keep),
