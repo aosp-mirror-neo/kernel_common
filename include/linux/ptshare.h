@@ -42,6 +42,16 @@ static inline bool vma_is_ptshare_client(const struct vm_area_struct *vma)
 }
 
 /**
+ * vmg_is_ptshare_client - Check whether a VMA merge maps a client VMA
+ * @vmg: The struct vma_merge_struct of the merge.
+ *
+ * A macro, as struct vma_merge_struct is private to mm/.
+ *
+ * Return: true if the range being mapped or modified has VM_PT_SHARED.
+ */
+#define vmg_is_ptshare_client(vmg)	(!!((vmg)->vm_flags & VM_PT_SHARED))
+
+/**
  * vma_shares_pagetables - Check whether a client VMA is attached to its domain
  * @vma: The VMA to check.
  *
@@ -210,6 +220,8 @@ static inline bool vma_is_ptshare_client(const struct vm_area_struct *vma)
 {
 	return false;
 }
+
+#define vmg_is_ptshare_client(vmg)	((void)(vmg), false)
 
 static inline bool vma_shares_pagetables(const struct vm_area_struct *vma)
 {

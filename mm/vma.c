@@ -108,6 +108,10 @@ static inline bool is_mergeable_vma(struct vma_merge_struct *vmg, bool merge_nex
 		return false;
 	if (!is_mergable_pad_vma(vma, vmg->vm_flags))
 		return false;
+	if (vmg_is_ptshare_client(vmg))
+		return false;
+	if (vma_is_ptshare_shadow(vma))
+		return false;
 	return true;
 }
 

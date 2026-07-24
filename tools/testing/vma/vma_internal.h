@@ -1417,4 +1417,11 @@ static inline void ptshare_vma_init_from(struct vm_area_struct *dest,
 {
 }
 
+#define vmg_is_ptshare_client(vmg)	((void)(vmg), false)
+
+static inline bool vma_is_ptshare_shadow(const struct vm_area_struct *vma)
+{
+	return false;
+}
+
 #endif	/* __MM_VMA_INTERNAL_H */
