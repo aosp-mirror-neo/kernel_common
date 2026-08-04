@@ -1424,4 +1424,9 @@ static inline bool vma_is_ptshare_shadow(const struct vm_area_struct *vma)
 	return false;
 }
 
+static inline int ptshare_unshare_vma_locked(struct vm_area_struct *vma)
+{
+	return 0;
+}
+
 #endif	/* __MM_VMA_INTERNAL_H */

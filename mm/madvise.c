@@ -16,6 +16,7 @@
 #include <linux/page_idle.h>
 #include <linux/userfaultfd_k.h>
 #include <linux/hugetlb.h>
+#include <linux/ptshare.h>
 #include <linux/falloc.h>
 #include <linux/fadvise.h>
 #include <linux/sched.h>
@@ -180,6 +181,8 @@ static int madvise_update_vma(vm_flags_t new_flags,
 		return PTR_ERR(vma);
 
 	madv_behavior->vma = vma;
+
+	new_flags = ptshare_sync_vm_flags(vma, new_flags);
 
 	/* vm_flags is protected by the mmap_lock held in write mode. */
 	vma_start_write(vma);

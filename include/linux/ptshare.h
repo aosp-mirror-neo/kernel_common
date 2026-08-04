@@ -208,6 +208,27 @@ static inline int ptshare_unshare_vma_locked(struct vm_area_struct *vma)
 	return __ptshare_unshare_vma(vma);
 }
 
+/**
+ * ptshare_sync_vm_flags - Drop a stale VM_PT_SHARED from precomputed flags
+ * @vma: The VMA that @vm_flags are about to be written to.
+ * @vm_flags: Flags computed from @vma before it may have been unshared.
+ *
+ * Unsharing a client VMA, directly or by splitting it, clears VM_PT_SHARED.
+ * Callers that compute new flags before such an operation and write them
+ * back afterwards pass them through this helper once the operation has
+ * returned. Until then the flags must keep VM_PT_SHARED, so that the merge
+ * checks keep refusing to merge the VMA while it still shares page tables.
+ *
+ * Return: @vm_flags, without VM_PT_SHARED if @vma is no longer a client VMA.
+ */
+static inline vm_flags_t ptshare_sync_vm_flags(const struct vm_area_struct *vma,
+					       vm_flags_t vm_flags)
+{
+	if (!vma_is_ptshare_client(vma))
+		vm_flags &= ~VM_PT_SHARED;
+	return vm_flags;
+}
+
 /* dup_mm() copies the parent's mm_struct: start outside any domain. */
 static inline void ptshare_mm_init(struct mm_struct *mm)
 {
@@ -275,6 +296,12 @@ static inline int ptdesc_ptshare_count(struct ptdesc *pt)
 static inline int ptshare_unshare_vma_locked(struct vm_area_struct *vma)
 {
 	return 0;
+}
+
+static inline vm_flags_t ptshare_sync_vm_flags(const struct vm_area_struct *vma,
+					       vm_flags_t vm_flags)
+{
+	return vm_flags;
 }
 
 static inline void ptshare_mm_init(struct mm_struct *mm)
