@@ -13,3 +13,8 @@
  * Author: Kalesh Singh <kaleshsingh@google.com>
  */
 #include <linux/ptshare.h>
+
+int __ptshare_unshare_vma(struct vm_area_struct *vma)
+{
+	return -EINVAL;
+}
