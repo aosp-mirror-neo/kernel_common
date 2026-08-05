@@ -1106,6 +1106,9 @@ static bool is_valid_guard_vma(struct vm_area_struct *vma, bool allow_locked)
 	if (!allow_locked)
 		disallowed |= VM_LOCKED;
 
+	if (vma_is_ptshare_client(vma))
+		return false;
+
 	return !(vma->vm_flags & disallowed);
 }
 
