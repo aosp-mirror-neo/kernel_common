@@ -2,6 +2,7 @@
 #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
 
 #include <linux/mm.h>
+#include <linux/ptshare.h>
 #include <linux/sched.h>
 #include <linux/sched/mm.h>
 #include <linux/mmu_notifier.h>
@@ -1728,6 +1729,9 @@ static void retract_page_tables(struct address_space *mapping, pgoff_t pgoff)
 		spinlock_t *pml;
 		spinlock_t *ptl;
 		bool success = false;
+
+		if (vma_is_ptshare_client(vma) || vma_is_ptshare_shadow(vma))
+			continue;
 
 		/*
 		 * Check vma->anon_vma to exclude MAP_PRIVATE mappings that
