@@ -371,6 +371,7 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_tcp_rtt_estimator);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_udp_enqueue_schedule_skb);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_build_skb_around);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_should_memcg_bypass);
+EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_should_memcg_bypass_ext);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_rvh_cpu_capacity_show);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_rwsem_init);
 EXPORT_TRACEPOINT_SYMBOL_GPL(android_vh_rwsem_wake);
