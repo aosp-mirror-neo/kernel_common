@@ -374413,6 +374413,15 @@ function {
   parameter_id: 0x11cfee5a
 }
 function {
+  id: 0x9bc35f06
+  return_type_id: 0x6720d32f
+  parameter_id: 0x18bd6530
+  parameter_id: 0x1d5bae2a
+  parameter_id: 0x6720d32f
+  parameter_id: 0x11cfee5a
+  parameter_id: 0x13580d6c
+}
+function {
   id: 0x9bc3617d
   return_type_id: 0x6720d32f
   parameter_id: 0x18bd6530
@@ -398276,6 +398285,15 @@ elf_symbol {
   full_name: "__traceiter_android_vh_mm_get_zone_mark"
 }
 elf_symbol {
+  id: 0x785b4749
+  name: "__traceiter_android_vh_mm_get_zone_mark_mglru"
+  is_defined: true
+  symbol_type: FUNCTION
+  crc: 0xf231c941
+  type_id: 0x9b87a5dd
+  full_name: "__traceiter_android_vh_mm_get_zone_mark_mglru"
+}
+elf_symbol {
   id: 0x945dd126
   name: "__traceiter_android_vh_mm_isolate_priv_lru"
   is_defined: true
@@ -399624,6 +399642,15 @@ elf_symbol {
   crc: 0x0b8cc7a3
   type_id: 0x9bc35bd0
   full_name: "__traceiter_android_vh_should_memcg_bypass"
+}
+elf_symbol {
+  id: 0x1b6f7a74
+  name: "__traceiter_android_vh_should_memcg_bypass_ext"
+  is_defined: true
+  symbol_type: FUNCTION
+  crc: 0xca537e33
+  type_id: 0x9bc35f06
+  full_name: "__traceiter_android_vh_should_memcg_bypass_ext"
 }
 elf_symbol {
   id: 0x4d31a413
@@ -406394,6 +406421,15 @@ elf_symbol {
   full_name: "__tracepoint_android_vh_mm_get_zone_mark"
 }
 elf_symbol {
+  id: 0xddb53a63
+  name: "__tracepoint_android_vh_mm_get_zone_mark_mglru"
+  is_defined: true
+  symbol_type: OBJECT
+  crc: 0x57962c48
+  type_id: 0x18ccbd2c
+  full_name: "__tracepoint_android_vh_mm_get_zone_mark_mglru"
+}
+elf_symbol {
   id: 0xba9e92f8
   name: "__tracepoint_android_vh_mm_isolate_priv_lru"
   is_defined: true
@@ -407742,6 +407778,15 @@ elf_symbol {
   crc: 0x57962c48
   type_id: 0x18ccbd2c
   full_name: "__tracepoint_android_vh_should_memcg_bypass"
+}
+elf_symbol {
+  id: 0xd4fa26a2
+  name: "__tracepoint_android_vh_should_memcg_bypass_ext"
+  is_defined: true
+  symbol_type: OBJECT
+  crc: 0x57962c48
+  type_id: 0x18ccbd2c
+  full_name: "__tracepoint_android_vh_should_memcg_bypass_ext"
 }
 elf_symbol {
   id: 0x823654f5
@@ -478903,6 +478948,7 @@ interface {
   symbol_id: 0xcaad5c9b
   symbol_id: 0x3fe16974
   symbol_id: 0x7f7c30a9
+  symbol_id: 0x785b4749
   symbol_id: 0x945dd126
   symbol_id: 0xf182fb15
   symbol_id: 0xe4f0b2cf
@@ -479053,6 +479099,7 @@ interface {
   symbol_id: 0x53263f73
   symbol_id: 0xda8424a2
   symbol_id: 0x2657a2e6
+  symbol_id: 0x1b6f7a74
   symbol_id: 0x4d31a413
   symbol_id: 0xe7f6f975
   symbol_id: 0x78accdce
@@ -479805,6 +479852,7 @@ interface {
   symbol_id: 0x7eba0cb1
   symbol_id: 0x533ca98e
   symbol_id: 0x046ed8db
+  symbol_id: 0xddb53a63
   symbol_id: 0xba9e92f8
   symbol_id: 0x47bcd15f
   symbol_id: 0x1c2aa835
@@ -479955,6 +480003,7 @@ interface {
   symbol_id: 0xd860c719
   symbol_id: 0x88acddf0
   symbol_id: 0x9e76c2c4
+  symbol_id: 0xd4fa26a2
   symbol_id: 0x823654f5
   symbol_id: 0x42ad45a3
   symbol_id: 0x0a5014f0

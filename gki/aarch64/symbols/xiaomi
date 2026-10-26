@@ -185,6 +185,10 @@
 # required by custom memory policy
   __tracepoint_android_vh_mm_get_zone_mark
   __traceiter_android_vh_mm_get_zone_mark
+  __tracepoint_android_vh_mm_get_zone_mark_mglru
+  __traceiter_android_vh_mm_get_zone_mark_mglru
+  __tracepoint_android_vh_should_memcg_bypass_ext
+  __traceiter_android_vh_should_memcg_bypass_ext
   __tracepoint_android_vh_folio_add_file_rmap
   __traceiter_android_vh_folio_add_file_rmap
   __tracepoint_android_vh_folio_remove_rmap
