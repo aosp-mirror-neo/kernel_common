@@ -243,6 +243,13 @@ DECLARE_HOOK(android_vh_scan_page_skip_current_prio,
 	TP_PROTO(bool cgroup_reclaim, int priority, struct lruvec *lruvec,
 		 int reclaim_idx, bool *skip),
 	TP_ARGS(cgroup_reclaim, priority, lruvec, reclaim_idx, skip));
+DECLARE_HOOK(android_vh_is_exec_file_folio,
+	TP_PROTO(struct folio *folio, vm_flags_t vm_flags, bool *is_exec),
+	TP_ARGS(folio, vm_flags, is_exec));
+DECLARE_HOOK(android_vh_sort_folio_protect,
+	TP_PROTO(struct lruvec *lruvec, struct folio *folio, int tier_idx,
+		 bool *protect),
+	TP_ARGS(lruvec, folio, tier_idx, protect));
 
 #endif /* _TRACE_HOOK_VMSCAN_H */
 /* This part must be outside protection */
