@@ -649,3 +649,6 @@ __tracepoint_android_vh_migrate_pages_batch_break
 __tracepoint_android_vh_migrate_batch_nr_pages
 
 
+# memcg flush stats
+__tracepoint_android_vh_mem_cgroup_flush_stats_bypass
+__traceiter_android_vh_mem_cgroup_flush_stats_bypass
