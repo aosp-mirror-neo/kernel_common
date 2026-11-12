@@ -217,6 +217,7 @@ filegroup(
         "gki/aarch64/symbols/kunit",
         "gki/aarch64/symbols/lenovo",
         "gki/aarch64/symbols/mtk",
+        "gki/aarch64/symbols/nvidia",
         "gki/aarch64/symbols/oplus",
         "gki/aarch64/symbols/pixel",
         "gki/aarch64/symbols/pixel_watch",
@@ -1476,10 +1477,10 @@ cc_library(
     hdrs = glob([
         "tools/lib/bpf/*.h",
     ]),
-    implementation_deps = [":tools_includes"],
     strip_include_prefix = "tools/lib",
     visibility = ["//visibility:public"],
     deps = ["//prebuilts/kernel-build-tools:imported_libs"],
+    implementation_deps = [":tools_includes"],
 )
 
 pahole(
